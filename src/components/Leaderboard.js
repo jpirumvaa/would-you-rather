@@ -6,17 +6,16 @@ class Leaderboard extends Component {
 const {name, avatar, questLength, answLength,score}=this.props
 
         return (
-            <div className="leader-board">
+            <div className="leader-board flex-display">
 
-                <div class="user-info">
+                <div class="flex-display">
                     <img
                     src={avatar}
                     alt={`Avatar of ${name}`}
                     className="avatar"/>
                     <div className="q-and-a">
                         <h3>{name}</h3>                
-                        <p> Asked <b>{questLength}</b> questions</p>
-                        <hr/>
+                        <p className="bord-top"> Asked <b>{questLength}</b> questions</p>
                         <p> Answered <b>{answLength}</b> questions</p>
                     </div>
                     

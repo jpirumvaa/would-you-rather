@@ -21,8 +21,9 @@ a {
 .btn {
   text-transform: uppercase;
   margin: 35px auto;
-  padding: 10px;
-  border: 1px solid rgba(0,0,0,.29);
+  padding: 5px;
+  border: 1px solid  #82E0AA;
+  border-radius: 5px;
   cursor: pointer;
   background: #fff;
   font-size: 16px;
@@ -167,10 +168,8 @@ li {
 .leader-board{
   width: 50%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-evenly;
   box-shadow: 1px 4px 15px #2980B9;
-  padding: 15px 0;
+  padding: 15px;
   
 }
 .leader-board h4{
@@ -178,13 +177,22 @@ li {
   padding: 10px 20px;
 }
 
-.user-info{
+.flex-display{
   display: flex;
+  justify-content: space-evenly;
 }
 .q-and-a{
   border-right: 2px solid #82E0AA;
   border-left: 2px solid #82E0AA;
   padding: 10px;
+}
+.bord-left{
+  border-left: 2px solid #82E0AA;
+  padding-left: 10px;
+}
+.bord-top{
+  border-top: 2px solid #34495E;
+  padding-top: 10px;
 }
 .score{
   background-color: #3498DB ;

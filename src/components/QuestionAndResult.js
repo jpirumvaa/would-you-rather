@@ -1,16 +1,15 @@
 import React, { Component } from 'react'
-import UnAnswered from './UnAnswered'
-import Answered from './Answered'
 import {connect} from 'react-redux'
+import Question from './Question'
 
-
-class Home extends Component {
+class QuestionAndResult extends Component {
     render() {
+        const {questionsIds} = this.props
         return (
             <div>
-            {this.props.questionsIds.map((id)=>(
+                {questionsIds.map((id)=>(
                 <li key={id}>
-                    <Answered id={id}/>
+                    <Question id={id}/>
                 </li>
             ))}
             </div>
@@ -24,4 +23,4 @@ function mapStateToProps({questions}){
         
     }
 }
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps)(QuestionAndResult)
