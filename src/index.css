@@ -76,6 +76,10 @@ li {
   border-radius: 50%;
   margin: 10px;
 }
+.small-avatar{
+  border-radius: 50%;
+  height: 20px;
+}
 
 .tweet {
   width: 100%;
@@ -170,6 +174,7 @@ li {
   margin: 0 auto;
   box-shadow: 1px 4px 15px #2980B9;
   padding: 15px;
+  margin-bottom: 20px;
   
 }
 .leader-board h4{
@@ -194,12 +199,40 @@ li {
   border-top: 2px solid #34495E;
   padding-top: 10px;
 }
-.score{
-  background-color: #3498DB ;
+.score, .rank{
   text-align: center;
   height: 30px;
   margin: 0 auto;
   width: 40px;
   border-radius: 50%;
   padding-top: 10px;
+}
+.score{
+  background-color: #3498DB ;
+}
+.rank{
+  background-color: rgb(4, 75, 42);
+  color: #fff;
+}
+.progress {
+	background-color: #d8d8d8;
+	border-radius: 20px;
+	position: relative;
+	margin: 15px 0;
+	height: 30px;
+	width: 300px;
+}
+
+.progress-score {
+	background: linear-gradient(to right, #ABEBC6 , #186A3B );
+	box-shadow: 0 3px 3px -5px #58D68D , 0 2px 5px #58D68D ;
+	border-radius: 20px;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 0;
+	opacity: 0;
+	transition: 1s ease 0.3s;
 }

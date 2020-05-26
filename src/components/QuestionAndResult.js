@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import Question from './Question'
+import Results from './Results'
 
 class QuestionAndResult extends Component {
     render() {
-        const {questionsIds} = this.props
+        const {questionsIds, questions, authedUser} = this.props
+
         return (
             <div>
                 {questionsIds.map((id)=>(
                 <li key={id}>
-                    <Question id={id}/>
+                    {((questions[id].optionOne.votes.includes(authedUser))
+                    ||(questions[id].optionTwo.votes.includes(authedUser)))?
+                        <Results id={id}/>: <Question id={id}/>}
                 </li>
             ))}
             </div>
@@ -17,10 +21,14 @@ class QuestionAndResult extends Component {
     }
 }
 
-function mapStateToProps({questions}){
+function mapStateToProps({questions, authedUser}){
+
     return{
         questionsIds: Object.keys(questions),
-        
+        questions,
+        authedUser
+
+
     }
 }
 export default connect(mapStateToProps)(QuestionAndResult)

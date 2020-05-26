@@ -6,6 +6,8 @@ import Nav from './Nav'
 import Leaderboard from './Leaderboard'
 import Home from './Home'
 import QuestionAndResult from './QuestionAndResult'
+import LogIn from './LogIn'
+
 
 
 
@@ -16,19 +18,23 @@ class App extends Component {
     this.props.dispatch(handleInitialData())
   }
   render() {
+    const {usersIds}= this.props
+
+
+
     return (
       <div className="container">
         <LoadingBar />
-        <QuestionAndResult/>
-        
+
         {/* 
         <Home/>
+        <Leaderboard/>
+        <QuestionAndResult/>
         
-        {this.props.usersIds.map((id)=>(
-          <li key={id}>
-            <Leaderboard id={id}/>
-          </li>
-        ))}*/}
+        */}
+        <LogIn/>
+        
+        
         
         
         
@@ -40,6 +46,7 @@ class App extends Component {
 function mapStateToProps({users}){
   return{
       usersIds: Object.keys(users),
+
       
   }
 }

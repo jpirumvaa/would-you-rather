@@ -10,7 +10,7 @@ class Home extends Component {
             <div>
             {this.props.questionsIds.map((id)=>(
                 <li key={id}>
-                    <Answered id={id}/>
+                    <UnAnswered id={id}/>
                 </li>
             ))}
             </div>

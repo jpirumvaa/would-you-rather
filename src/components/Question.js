@@ -28,11 +28,12 @@ class Question extends Component {
     };
 
     render() {
-        const {name, avatar, optionTwo, optionOne,answer}= this.props
+        const {name, avatar, optionTwo, optionOne}= this.props
+
         return (
             <div className="leader-board">
                 <h3>{name} asks:</h3>
-                <div className="flex-display">
+                <div className="flex-display bord-top">
                     <img
                         src={avatar}
                         alt={`Avatar of ${name}`}
@@ -40,7 +41,7 @@ class Question extends Component {
                     />
 
 
-                    <div>
+                    <div className="bord-left">
                         <h2>Would you rather</h2>
 
                         <form onSubmit={this.handleFormSubmit}>
@@ -68,7 +69,7 @@ class Question extends Component {
                                 Submit
                             </button>
                         </form>
-                        {answer}
+
                     </div>
 
 
@@ -84,16 +85,19 @@ class Question extends Component {
 const mapStateToProps=({users, questions}, {id})=>{
     const name= users[questions[id].author].name
     const avatar= users[questions[id].author].avatarURL
+
     const optionOne= questions[id].optionOne.text
     const optionTwo= questions[id].optionTwo.text
-    const answer= users['tylermcginnis'].answers[id]
+
+
+
 
     return{
         name:name,
         avatar:avatar,
         optionOne,
         optionTwo,
-        answer
+        
     }
 }
 export default connect(mapStateToProps) (Question)
