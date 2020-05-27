@@ -64,10 +64,10 @@ class Question extends Component {
                                 />
                                 {optionTwo}
                             </label>
-
                             <button className="btn" type="submit">
                                 Submit
                             </button>
+
                         </form>
 
                     </div>

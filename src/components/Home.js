@@ -1,27 +1,49 @@
 import React, { Component } from 'react'
-import UnAnswered from './UnAnswered'
-import Answered from './Answered'
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
-
+import AnsweredQuestions from './AnsweredQuestions'
+import UnAnsweredQuestions from './UnAnsweredQuestions'
 
 class Home extends Component {
-    render() {
-        return (
-            <div>
-            {this.props.questionsIds.map((id)=>(
-                <li key={id}>
-                    <UnAnswered id={id}/>
-                </li>
-            ))}
-            </div>
-        )
-    }
+  render() {
+
+    return (
+      <Router>
+
+        <div className="container">
+          <div className="center">
+            <nav className="nav home-nav">
+                <ul>
+                    <li>
+                        <NavLink to='/' exact activeClassName="active">Answered Questions</NavLink>
+                    </li>
+                    
+                    <li>
+                    <NavLink to='/unanswered' activeClassName="active">UnAnswered Questions</NavLink>
+                    </li>
+
+                </ul>
+            </nav>
+          </div>
+          <div>
+            <Route path='/' exact component={AnsweredQuestions}/>
+            <Route path='/unanswered' component={UnAnsweredQuestions}/>
+          </div>
+
+        </div>
+      </Router>
+      
+    )
+  }
 }
 
-function mapStateToProps({questions}){
-    return{
-        questionsIds: Object.keys(questions),
-        
-    }
+function mapStateToProps({users}){
+  return{
+      usersIds: Object.keys(users),
+
+      
+  }
 }
-export default connect(mapStateToProps)(Home)
+
+
+export default connect(mapStateToProps) (Home)

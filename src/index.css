@@ -48,17 +48,27 @@ a {
 
 .active {
   font-weight: bold;
+  font-size: 17px;
+  background-color:#BDC3C7; 
+  padding: 10px;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
 }
 
 .nav ul {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   text-decoration: none;
 }
 
 .nav li:first-child {
   padding-left: 0;
+}
+.home-nav li{
+  background-color:#BDC3C7; 
+  padding: 10px;
+  border-top-right-radius: 25px;
 }
 
 ul {
@@ -69,6 +79,7 @@ li {
   list-style-type: none;
   padding: 10px;
   text-decoration: none;
+  font-size: 17px;
 }
 
 .avatar {
@@ -80,95 +91,6 @@ li {
   border-radius: 50%;
   height: 20px;
 }
-
-.tweet {
-  width: 100%;
-  max-width: 590px;
-  padding: 10px;
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid #dad7d7;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.tweet-info {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Hacky but less typing in the video */
-.tweet-info > div > span:first-child {
-  font-weight: bold;
-  margin-right: 5px;
-}
-.tweet-info > div > span:nth-child(2) {
-  color: #969696;
-  font-size: 16px;
-}
-.tweet-info > div > div {
-  color: #969696;
-  font-size: 15px;
-}
-.tweet-info > div > p {
-  font-size: 18px;
-  margin: 10px 0;
-}
-.tweet-icons {
-  display: flex;
-  align-items: center;
-}
-.tweet-icons > span {
-  color: #969696;
-  margin: 0 15px 0 5px;
-  font-size: 18px !important;
-}
-.tweet-icon {
-  font-size: 27px;
-  color: #697784;
-}
-.tweet-icon:hover {
-  color: #00b5d6;
-  cursor: pointer;
-}
-.replying-to {
-  border: none;
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  color: #969696;
-  cursor: pointer;
-}
-
-.heart-button {
-  background: transparent;
-  border: none;
-}
-
-.new-tweet {
-  width: 100%;
-  max-width: 590px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-}
-
-.textarea {
-  border-radius: 4px;
-  border: 1px solid #dad7d7;
-  padding: 10px;
-  font-size: 15px;
-  height: 100px;
-}
-
-.tweet-length {
-  text-align: right;
-  margin-top: 10px;
-  font-size: 20px;
-  color: #C3392A;
-}
-
 .leader-board{
   width: 50%;
   margin: 0 auto;
@@ -177,8 +99,8 @@ li {
   margin-bottom: 20px;
   
 }
-.leader-board h4{
-  background-color: #A6ACAF;
+.leader-board h4, .head{
+  background-color: #BDC3C7;
   padding: 10px 20px;
 }
 
@@ -187,7 +109,7 @@ li {
   justify-content: space-evenly;
 }
 .q-and-a{
-  border-right: 2px solid #82E0AA;
+  border-right: 2px solid rgb(131, 130, 224);
   border-left: 2px solid #82E0AA;
   padding: 10px;
 }
@@ -235,4 +157,12 @@ li {
 	width: 0;
 	opacity: 0;
 	transition: 1s ease 0.3s;
+}
+.input-field{
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: -100px;
+}
+.top-margin{
+  margin-top: 20px;
 }
