@@ -28,16 +28,19 @@ function saveAnswerToQuestion(authedUser, qid, answer){
 export function handleSaveAnswer( qid,answer){
     return(dispatch, getState)=>{
         const {authedUser}= getState()
-        dispatch(showLoading())
-        return addAnswer({
-            authedUser,
-            qid, 
-            answer,             
-        })
-        .then(()=>{
-            dispatch(saveAnswerToQuestion(authedUser, qid, answer))
-            dispatch(saveAnswerToUser(authedUser, qid, answer))
-        })        
-        .then(()=>dispatch(hideLoading()))
+        if(answer!==""){
+            dispatch(showLoading())
+            return addAnswer({
+                authedUser,
+                qid, 
+                answer,             
+            })
+            .then(()=>{
+                dispatch(saveAnswerToQuestion(authedUser, qid, answer))
+                dispatch(saveAnswerToUser(authedUser, qid, answer))
+            })        
+            .then(()=>dispatch(hideLoading()))
+        }
+
     }
 }

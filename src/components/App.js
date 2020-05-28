@@ -7,6 +7,7 @@ import Nav from './Nav'
 import Leaderboard from './Leaderboard'
 import Home from './Home'
 import LogIn from './LogIn'
+import NewQuestion from './NewQuestion'
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route path='/' exact component={Home}/>
             <Route path='/leaderboard' component={Leaderboard}/>
             <Route path='/login' component={LogIn}/>
+            <Route path='/new' component={NewQuestion}/>
           </div>
 
         </Fragment>

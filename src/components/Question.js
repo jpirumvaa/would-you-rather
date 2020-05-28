@@ -6,7 +6,7 @@ class Question extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        selectedOption: "optionOne"
+        selectedOption: ""
         };
     }
     
@@ -19,10 +19,16 @@ class Question extends Component {
     handleFormSubmit = formSubmitEvent => {
         formSubmitEvent.preventDefault();
 
-        const {id, dispatch}= this.props
+        const {id, dispatch, authedUser}= this.props
         const {selectedOption} = this.state
 
-        dispatch(handleSaveAnswer(id,selectedOption))
+        if(authedUser===""){
+            <div>Sign in first</div>
+        }else{
+            dispatch(handleSaveAnswer(id,selectedOption))
+        }
+
+        
 
     //redirect to answers
     };
@@ -82,7 +88,7 @@ class Question extends Component {
     }
 }
 
-const mapStateToProps=({users, questions}, {id})=>{
+const mapStateToProps=({users, questions, authedUser}, {id})=>{
     const name= users[questions[id].author].name
     const avatar= users[questions[id].author].avatarURL
 
@@ -93,8 +99,9 @@ const mapStateToProps=({users, questions}, {id})=>{
 
 
     return{
-        name:name,
-        avatar:avatar,
+        authedUser,
+        name,
+        avatar,
         optionOne,
         optionTwo,
         
