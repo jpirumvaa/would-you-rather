@@ -15,8 +15,7 @@ class Nav extends Component {
     render() {
         const {authedUser,users}= this.props
         const user= users[authedUser]
-        //Why user is being undefined whenever I want to access its name?
-        //console.log(user.name)
+
         return (
             <div>
                 <nav className="nav flex-display">
@@ -26,7 +25,7 @@ class Nav extends Component {
                         </li>
                         
                         <li>
-                            <NavLink to='/new'  activeClassName="active">Question</NavLink>
+                            <NavLink to='/new'  activeClassName="active">Add Question</NavLink>
                         </li>
 
                         <li>
@@ -36,7 +35,10 @@ class Nav extends Component {
                     <div >                      
                         {authedUser!==""?(
                                 <span className="flex-display top-margin">
-                                    <li>Hello, {authedUser}</li>
+                                    {user===undefined?<li></li>:
+                                    <li>Hello, <b>{user.name}</b></li>
+                                    }
+                                    
                                     <li>
                                         <NavLink  to='/login' exact activeClassName="active" onClick={this.handleLogOut}>Log Out</NavLink>
                                     </li>

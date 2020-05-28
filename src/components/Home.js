@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import AnsweredQuestions from './AnsweredQuestions'
 import UnAnsweredQuestions from './UnAnsweredQuestions'
+import QuestionAndResult from './QuestionAndResult'
 
 class Home extends Component {
   render() {
@@ -28,6 +29,7 @@ class Home extends Component {
           <div>
             <Route path='/' exact component={AnsweredQuestions}/>
             <Route path='/unanswered' component={UnAnsweredQuestions}/>
+            <Route path='/question/:id' component={QuestionAndResult}/>
           </div>
 
         </div>

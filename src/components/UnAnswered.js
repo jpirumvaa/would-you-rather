@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 class UnAnswered extends Component {
     render() {
-        const {name, avatar, optionSample, opt1, opt2, authedUser}= this.props
+        const {name, avatar, optionSample, opt1, opt2, authedUser, id}= this.props
         return (
             <Fragment>
                 {(!(opt2.includes(authedUser) || opt1.includes(authedUser))) && (
@@ -18,7 +19,11 @@ class UnAnswered extends Component {
                             <div className='bord-left'>
                                 <h3>Would you rather</h3>
                                 <p>.......{optionSample}......</p>
-                                <button className="btn">View Full</button>
+                                <Link to={`/question/${id}`}>
+                                    <button className="btn" type="submit">
+                                        View Full
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     </div>
@@ -36,12 +41,13 @@ const mapStateToProps= ({users, questions, authedUser}, {id})=>{
     const opt2= questions[id].optionTwo.votes
 
     return{
-        name: name,
-        avatar: avatar,
-        optionSample: optionSample,
+        name,
+        avatar,
+        optionSample,
         authedUser,
-        opt1: opt1,
-        opt2: opt2,
+        opt1,
+        opt2,
+        id,
     }
 }
 

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 
 class Answered extends Component {
     render() {
-        const {name, avatar, optionOneText,opt1, opt2, authedUser,question}= this.props
+        const {name, avatar, optionOneText,opt1, opt2, authedUser,question,id}= this.props
         return (
             <div>
                 {(opt2.includes(authedUser) || opt1.includes(authedUser)) && (
@@ -19,7 +19,7 @@ class Answered extends Component {
                             <div className='bord-left'>
                                 <h3>Would you rather</h3>
                                 <p>.......{optionOneText}......</p>
-                                <Link to='/questionandresult'>
+                                <Link to={`/question/${id}`}>
                                     <button className="btn" type="submit">
                                         View Full
                                     </button>
@@ -54,6 +54,7 @@ const mapStateToProps= ({users, questions, authedUser}, {id})=>{
         opt2,
         author,
         question:formatQuestion({optionOneText, optionTwoText, author}),
+        id
     }
 }
 

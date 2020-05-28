@@ -68,7 +68,7 @@ export class LogIn extends Component {
                         
                     </select>
                     </label>
-                    <input className='btn' type="submit" value="Sign in" />
+                    <abbr title="Double-click to land Home"><input className='btn' type="submit" value="Sign in" /></abbr>
                 </form>
             </div>
         )
