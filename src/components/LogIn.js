@@ -48,7 +48,7 @@ export class LogIn extends Component {
                 </div>                    
                 <p>Please sign in to continue!</p>
                 <br/>
-                <img src="https://scontent.fkgl2-1.fna.fbcdn.net/v/t1.0-0/p180x540/100790493_1198297713864948_1839846848668368896_o.jpg?_nc_cat=102&_nc_sid=730e14&_nc_eui2=AeHUvCH5H1-BHovKMzdPmBkQzSa-sogy8cbNJr6yiDLxxlQDFUqaasE0HRZR-whq22m7lqWF4XC1op_J3dMhB8uI&_nc_ohc=PEDSFm7TaiQAX-b5u0W&_nc_ht=scontent.fkgl2-1.fna&_nc_tp=6&oh=bfc2a4d5a9aad157b5345542d53207f8&oe=5EF27100" className="avatar"/>
+                <img alt="App Developer" src="https://scontent.fkgl2-1.fna.fbcdn.net/v/t1.0-0/p180x540/100790493_1198297713864948_1839846848668368896_o.jpg?_nc_cat=102&_nc_sid=730e14&_nc_eui2=AeHUvCH5H1-BHovKMzdPmBkQzSa-sogy8cbNJr6yiDLxxlQDFUqaasE0HRZR-whq22m7lqWF4XC1op_J3dMhB8uI&_nc_ohc=PEDSFm7TaiQAX-b5u0W&_nc_ht=scontent.fkgl2-1.fna&_nc_tp=6&oh=bfc2a4d5a9aad157b5345542d53207f8&oe=5EF27100" className="avatar"/>
                 <h2>Sign in</h2>
                 
                 <form onSubmit={this.handleSubmit}>

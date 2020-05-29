@@ -1,16 +1,19 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import {formatQuestion} from '../utils/_DATA'
 import {Link} from 'react-router-dom'
+import {formatDate} from '../utils/api'
 
 class Answered extends Component {
     render() {
-        const {name, avatar, optionOneText,opt1, opt2, authedUser,question,id}= this.props
+        const {name, avatar, optionOneText,opt1, opt2, authedUser,timestamp,id}= this.props
         return (
             <div>
                 {(opt2.includes(authedUser) || opt1.includes(authedUser)) && (
                     <div className="leader-board">
-                        <h3>{name} asks:</h3>
+                        <div className='flex-display'>
+                            <h3>{name} asks:</h3>
+                            <h4>{formatDate(timestamp)}</h4>
+                        </div>
                         <div className="flex-display bord-top">
                             <img
                                 src={avatar}
@@ -41,19 +44,19 @@ const mapStateToProps= ({users, questions, authedUser}, {id})=>{
     const optionTwoText= questions[id].optionTwo.text
     const opt1= questions[id].optionOne.votes
     const opt2= questions[id].optionTwo.votes
-    const question= questions[id]
+    const timestamp= questions[id].timestamp
     const author= name
 
     return{
         name,
         avatar,
+        timestamp,
         optionOneText,
         optionTwoText,
         authedUser,
         opt1,
         opt2,
         author,
-        question:formatQuestion({optionOneText, optionTwoText, author}),
         id
     }
 }

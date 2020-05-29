@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 class Leaderboard extends Component {
     render() {
         
-        const {users}= this.props
+        const {users,authedUser}= this.props
 
 
         const usersWithScore = {};
@@ -27,6 +27,15 @@ class Leaderboard extends Component {
         let rank= 0;
 
         return (
+            <div>
+                {authedUser===''?
+                <div className="leader-board center">
+                    <h2>Welcome to the Leaderboard!!!</h2>
+                    <h4>Please log in to get started!</h4>
+                    <h3>Not Ready to Login Now?</h3>
+                    <p>Natigate the App to see basic functionalities</p>
+                </div>:
+                
             <div>
             {Object.keys(usersWithScoreSorted).map(uid=>{
                 const user=usersWithScoreSorted[uid]
@@ -56,6 +65,7 @@ class Leaderboard extends Component {
                             <h4>Scores</h4>
                             <h3 className='score'>{score}</h3>
                         </div> 
+
                     </div>
                         
                 )
@@ -63,13 +73,16 @@ class Leaderboard extends Component {
         })}
 
             </div>
+            }
+            </div>
         )
     }
 }
 
-const mapStateToProps=({users})=>{
+const mapStateToProps=({users,authedUser})=>{
     return{
     users,
+    authedUser
     }
     }
 

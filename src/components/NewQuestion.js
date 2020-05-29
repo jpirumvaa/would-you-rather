@@ -1,9 +1,56 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
+import {handleSaveQuestion} from '../actions/questions'
+import {Redirect}from 'react-router-dom'
 
 class NewQuestion extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+            optionOneText:"",
+            optionTwoText: "",
+            toHome: false
+
+        }
+    }
+
+    handleOptionOneChange=(e)=>{
+        this.setState({
+            optionOneText: e.target.value,
+        })
+    }
+
+    handleOptionTwoChange=(e)=>{
+        this.setState({
+            optionTwoText: e.target.value,
+        })
+    }
+
+    handleSubmit=(e)=>{
+        e.preventDefault()
+        const {optionOneText, optionTwoText}= this.state
+        const {dispatch,authedUser}= this.props
+        
+        if(optionOneText!==''||optionTwoText!==''){
+        dispatch(handleSaveQuestion({optionOneText, optionTwoText,authedUser}))
+        this.setState({
+            optionOne:"",
+            optionTwo: '',
+            toHome: true
+        })
+    }
+    }
     render() {
+        
+    const {toHome}= this.state
+
+    if (toHome===true) {
+        return <Redirect to={`/`} />
+    }
+
+
         const {authedUser}= this.props
         return (
             <div className="container">
@@ -18,17 +65,19 @@ class NewQuestion extends Component {
                     <h1 className="center">Create a New Question</h1>
                     <p className="bord-top">Complete the following question:</p>
                     <h2>Would You Rather</h2>
-                    <form className="center">
+                    <form onSubmit={this.handleSubmit} className="center">
                         <input
                         className="input-field"
                         type="text"
                         placeholder="Enter the first option"
+                        value={this.state.optionOne} onChange={this.handleOptionOneChange}
                         />
                         <h2 className="center">OR</h2>
                         <input
                         className="input-field"
                         type="text"
                         placeholder="Enter the second option"
+                        value={this.state.optionTwo} onChange={this.handleOptionTwoChange}
                         />
                         <button className="btn">Submit</button>
                     </form>

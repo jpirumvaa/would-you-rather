@@ -5,10 +5,12 @@ import {setAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
 
+    
+
 
     handleLogOut=(e)=>{
         e.preventDefault()
-        const {dispatch, authedUser}= this.props
+        const {dispatch}= this.props
         dispatch(setAuthedUser(''))
 
     }
@@ -33,22 +35,20 @@ class Nav extends Component {
                         </li>                        
                     </ul>
                     <div >                      
-                        {authedUser!==""?(
-                                <span className="flex-display top-margin">
-                                    {user===undefined?<li></li>:
-                                    <li>Hello, <b>{user.name}</b></li>
-                                    }
-                                    
-                                    <li>
-                                        <NavLink  to='/login' exact activeClassName="active" onClick={this.handleLogOut}>Log Out</NavLink>
-                                    </li>
-                                </span>
-                        ):
-                            (
-                                <li className="top-margin">
-                                        <NavLink to='/login' exact activeClassName="active">Log In</NavLink>
-                                </li>
-                            )}
+                                
+                    {user===undefined?                   
+                    <li className="top-margin">
+                        <NavLink to='/login' exact activeClassName="active">Log In</NavLink>
+                    </li>:
+                    <span className="flex-display top-margin">
+                    <li>Hello, <b>{user.name}</b></li>
+                    <li>
+                        <NavLink  to='/login' exact activeClassName="active" onClick={this.handleLogOut}>Log Out</NavLink>
+                    </li>
+                    </span>
+                    }                                  
+
+
                     </div>
                 </nav>
             </div>
@@ -59,8 +59,8 @@ class Nav extends Component {
 
 const mapStateToProps= ({users,authedUser})=>{
     return{
-        authedUser,
-        users
+        users,
+        authedUser
     }
 }
 export default connect(mapStateToProps)(Nav)

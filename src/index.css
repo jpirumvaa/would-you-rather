@@ -27,7 +27,7 @@ a {
   cursor: pointer;
   background: #fff;
   font-size: 16px;
-  width: 250px;
+  width: 95%;
   position: relative;
 }
 
@@ -102,6 +102,9 @@ li {
 .leader-board h4, .head{
   background-color: #BDC3C7;
   padding: 10px 20px;
+}
+.leader-board h3{
+  padding-top: 10px;
 }
 
 .flex-display{

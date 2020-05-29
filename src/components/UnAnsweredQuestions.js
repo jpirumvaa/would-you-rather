@@ -4,22 +4,32 @@ import {connect} from 'react-redux'
 
 
 class UnAnsweredQuestions extends Component {
+    
     render() {
+        const {authedUser,questions,questionsIds}= this.props
+        const sortedIds= questionsIds.sort((a,b)=>questions[b].timestamp-questions[a].timestamp)
         return (
             <div>
-            {this.props.questionsIds.map((id)=>(
-                <li key={id}>
-                    <UnAnswered id={id}/>
-                </li>
-            ))}
+                {authedUser!==""&&(
+
+                sortedIds.map((id)=>(
+                    <li key={id}>
+                        <UnAnswered id={id}/>
+                    </li>
+                ))
+                
+                
+            )}
             </div>
         )
     }
 }
 
-function mapStateToProps({questions}){
+function mapStateToProps({questions, authedUser}){
     return{
         questionsIds: Object.keys(questions),
+        authedUser,
+        questions
         
     }
 }

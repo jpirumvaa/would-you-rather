@@ -1,9 +1,13 @@
-import {addAnswer} from '../utils/api'
+import {addAnswer,addQuestion} from '../utils/api'
 import {showLoading, hideLoading} from 'react-redux-loading-bar'
 import {saveAnswerToUser} from './users'
+import {handleInitialData} from './shared'
+
+
 
 export const RECEIVE_QUESTIONS ="RECEIVE_QUESTIONS";
 export const SAVE_ANSWER_TO_QUESTION= 'SAVE_ANSWER_TO_QUESTION'
+export const SAVE_QUESTION= 'SAVE_QUESTION'
 
 
 
@@ -42,5 +46,24 @@ export function handleSaveAnswer( qid,answer){
             .then(()=>dispatch(hideLoading()))
         }
 
+    }
+}
+
+export function handleSaveQuestion(question){
+    return (dispatch, getState)=>{
+        const {authedUser}= getState()
+        dispatch(showLoading)
+        return addQuestion({
+            authedUser,
+            ...question,
+            author: question.authedUser
+        })
+        .then((quest)=>{
+            dispatch(handleInitialData(quest.author))            
+        })
+
+        .then(()=>{
+            dispatch(hideLoading())
+        })
     }
 }

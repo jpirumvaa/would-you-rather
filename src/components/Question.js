@@ -19,18 +19,10 @@ class Question extends Component {
     handleFormSubmit = formSubmitEvent => {
         formSubmitEvent.preventDefault();
 
-        const {id, dispatch, authedUser}= this.props
+        const {id, dispatch}= this.props
         const {selectedOption} = this.state
 
-        if(authedUser===""){
-            <div>Sign in first</div>
-        }else{
-            dispatch(handleSaveAnswer(id,selectedOption))
-        }
-
-        
-
-    //redirect to answers
+        dispatch(handleSaveAnswer(id,selectedOption))
     };
 
     render() {
@@ -45,7 +37,6 @@ class Question extends Component {
                         alt={`Avatar of ${name}`}
                         className="avatar"
                     />
-
 
                     <div className="bord-left">
                         <h2>Would you rather</h2>
@@ -73,33 +64,22 @@ class Question extends Component {
                             <button className="btn" type="submit">
                                 Submit
                             </button>
-
                         </form>
-
                     </div>
-
-
-                </div>
-                
-
-                
+                </div>           
             </div>
         )
     }
 }
 
-const mapStateToProps=({users, questions, authedUser}, {id})=>{
+const mapStateToProps=({users, questions}, {id})=>{
     const name= users[questions[id].author].name
     const avatar= users[questions[id].author].avatarURL
 
     const optionOne= questions[id].optionOne.text
     const optionTwo= questions[id].optionTwo.text
 
-
-
-
     return{
-        authedUser,
         name,
         avatar,
         optionOne,

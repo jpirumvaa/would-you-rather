@@ -2,6 +2,7 @@ import React, { Component,Fragment } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {handleInitialData} from '../actions/shared'
+import {setAuthedUser} from '../actions/authedUser'
 import LoadingBar from 'react-redux-loading-bar'
 import Nav from './Nav'
 import Leaderboard from './Leaderboard'
@@ -13,10 +14,9 @@ import NewQuestion from './NewQuestion'
 class App extends Component {
   componentDidMount(){
     this.props.dispatch(handleInitialData())
+    this.props.dispatch(setAuthedUser(""))
   }
   render() {
-    const {usersIds}= this.props
-
     return (
       <Router>
         
@@ -39,12 +39,5 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({users}){
-  return{
-      usersIds: Object.keys(users),
 
-      
-  }
-}
-
-export default connect(mapStateToProps) (App)
+export default connect() (App)
