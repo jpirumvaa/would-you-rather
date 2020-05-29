@@ -5,7 +5,7 @@ It is an interesting game in the not only building process but also playing.
 
 # Running the App
 The app can be run by installing npm install or yarn install and npm start or yarn start after getting them installed.
-Another option is using a hosted app that is available using this link:https://jpirumvaa.github.io/would-you-rather/
+Another option is using a hosted app that is available using this link:https://kefawouldyourather.netlify.app/
 
 # App Functionality
 Opening the app, you land on the Home page, you are asked to sign in before getting answered/unanswered questions, leaderboard, or being able to create a new question.
