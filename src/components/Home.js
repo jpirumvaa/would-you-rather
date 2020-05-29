@@ -24,11 +24,11 @@ const {authedUser}= this.props
             <nav className="nav home-nav">
                 <ul>
                   <li>
-                    <NavLink to='/' exact activeClassName="active">UnAnswered Questions</NavLink>
-                  </li>
-                  <li>
                       <NavLink to='/answered' exact activeClassName="active">Answered Questions</NavLink>
                   </li>
+                  <li>
+                    <NavLink to='/' exact activeClassName="active">UnAnswered Questions</NavLink>
+                  </li>                  
 
                 </ul>
             </nav>

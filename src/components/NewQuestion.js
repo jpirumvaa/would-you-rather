@@ -33,14 +33,12 @@ class NewQuestion extends Component {
         const {optionOneText, optionTwoText}= this.state
         const {dispatch,authedUser}= this.props
         
-        if(optionOneText!==''||optionTwoText!==''){
         dispatch(handleSaveQuestion({optionOneText, optionTwoText,authedUser}))
         this.setState({
             optionOne:"",
             optionTwo: '',
             toHome: true
         })
-    }
     }
     render() {
         
@@ -71,6 +69,7 @@ class NewQuestion extends Component {
                         type="text"
                         placeholder="Enter the first option"
                         value={this.state.optionOne} onChange={this.handleOptionOneChange}
+                        required
                         />
                         <h2 className="center">OR</h2>
                         <input
@@ -78,6 +77,7 @@ class NewQuestion extends Component {
                         type="text"
                         placeholder="Enter the second option"
                         value={this.state.optionTwo} onChange={this.handleOptionTwoChange}
+                        required
                         />
                         <button className="btn">Submit</button>
                     </form>

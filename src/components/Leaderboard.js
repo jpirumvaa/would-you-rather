@@ -46,7 +46,7 @@ class Leaderboard extends Component {
 
 
                 return(
-                    <div className="leader-board flex-display">
+                    <div key={uid} className="leader-board flex-display">
                         <div className="flex-display">
                             <h2 className="rank">{rank}</h2>
                             <img
