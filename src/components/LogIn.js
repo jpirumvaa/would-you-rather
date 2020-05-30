@@ -34,9 +34,10 @@ export class LogIn extends Component {
 
     render() {
         const {users}= this.props
+        const { from } = this.props.location.state || { from: { pathname: '/' } }
         const {toHome}= this.state
         if(toHome===true){
-            return <Redirect to='/'/>
+            return <Redirect to={from}/>
         }
 
         return (

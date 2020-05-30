@@ -19,8 +19,10 @@ class QuestionAndResult extends Component {
                     }
                 </div>
                 :
-                <div>
-                    404 The Question you are looking for is not available.
+                <div className="leader-board center">
+
+                    <h1>404</h1> 
+                    <p>Sorry, the Question you are looking for is not available.</p>
                 </div>
                 }
             </div>

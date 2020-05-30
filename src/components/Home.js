@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
-import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom'
+import {BrowserRouter as Router, NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
-import AnsweredQuestions from './AnsweredQuestions'
-import UnAnsweredQuestions from './UnAnsweredQuestions'
-import QuestionAndResult from './QuestionAndResult'
+
 
 class Home extends Component {
   render() {
@@ -34,11 +32,7 @@ const {authedUser}= this.props
             </nav>
             }
           </div>
-          <div>
-            <Route path='/' exact component={UnAnsweredQuestions}/>
-            <Route path='/answered' exact component={AnsweredQuestions}/>            
-            <Route path='/question/:id' exact component={QuestionAndResult}/>
-          </div>
+
 
         </div>
       </Router>

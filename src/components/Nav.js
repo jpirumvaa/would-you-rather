@@ -5,9 +5,6 @@ import {setAuthedUser } from '../actions/authedUser'
 
 class Nav extends Component {
 
-    
-
-
     handleLogOut=(e)=>{
         e.preventDefault()
         const {dispatch}= this.props
