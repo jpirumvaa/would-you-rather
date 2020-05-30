@@ -24,10 +24,10 @@ export class LogIn extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault()
-        const {dispatch, authedUser}= this.props
+        const {dispatch}= this.props
         dispatch(setAuthedUser(this.state.value))
         this.setState(()=>({
-            toHome: authedUser===""?false:true
+            toHome: this.state.value===""?false:true
         }))
     }
 
@@ -68,7 +68,7 @@ export class LogIn extends Component {
                         
                     </select>
                     </label>
-                    <abbr title="Double-click to land Home"><input className='btn' type="submit" value="Sign in" /></abbr>
+                    <input className='btn' type="submit" value="Sign in" />
                 </form>
             </div>
         )
