@@ -9,7 +9,10 @@ import Leaderboard from './Leaderboard'
 import Home from './Home'
 import LogIn from './LogIn'
 import NewQuestion from './NewQuestion'
-
+import PrivateRoute from './PrivateRoute'
+import AnsweredQuestions from './AnsweredQuestions'
+import UnAnsweredQuestions from './UnAnsweredQuestions'
+import QuestionAndResult from './QuestionAndResult'
 
 
 class App extends Component {
@@ -20,21 +23,22 @@ class App extends Component {
   render() {
     return (
       <Router>
-        
-
         <Fragment>
           <LoadingBar />
           <Nav/>         
 
           <div className="container">
-            <Route path='/' exact component={Home}/>
-            <Route path='/leaderboard' component={Leaderboard}/>
-            <Route path='/login' component={LogIn}/>
-            <Route path='/new' component={NewQuestion}/>
+          <Route path='/login' component={LogIn}/>
+            <PrivateRoute path='/' exact component={Home}/>
+            <PrivateRoute path='/leaderboard' component={Leaderboard}/>
+            <PrivateRoute path='/new' component={NewQuestion}/>
+            <PrivateRoute path='/' exact component={UnAnsweredQuestions}/>
+            <PrivateRoute path='/answered' exact component={AnsweredQuestions}/>            
+            <PrivateRoute path='/question/:id' exact component={QuestionAndResult}/>
           </div>
-
         </Fragment>
       </Router>
+
 
     )
   }
